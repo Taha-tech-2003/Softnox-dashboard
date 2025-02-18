@@ -14,15 +14,7 @@ const LoginScreen = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.auth);
     const schema = yup.object().shape({
-        email: yup.string()
-            .required('This field is required')
-            .test(
-                'is-email-or-username',
-                'Input must be a valid email or username (alphanumeric, 3-20 characters)',
-                value =>
-                    /^[a-zA-Z0-9_.-]{3,20}$/.test(value) ||
-                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-            ).min(3),
+        email: yup.string().email().required('This field is required').test('is-email-or-username','Input must be a valid email or username (alphanumeric, 3-20 characters)',value => /^[a-zA-Z0-9_.-]{3,20}$/.test(value) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)).min(3),
         password: yup.string().required('Password is required'),
     });
 

@@ -16,7 +16,7 @@ const SignUpScreen = () => {
 
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
-        email: yup.string()
+        email: yup.string().email()
             .required('This field is required')
             .test(
                 'is-email-or-username',

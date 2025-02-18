@@ -4,11 +4,10 @@ import { LuUser } from "react-icons/lu";
 import { useNavigate } from "react-router";
 
 const Header = () => {
-    const navigate = useNavigate()
     const handleLogout = () => {
         localStorage.removeItem("authToken");
         localStorage.removeItem("userName");
-        window.location.href = "/login";
+        window.location.href = "/";
     };
     const items = [
         {
